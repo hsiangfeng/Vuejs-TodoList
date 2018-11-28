@@ -41,7 +41,7 @@ var app = new Vue({
             this.cacheTodo = item;
             this.cacheTitle=item.title;
         },
-        canceEdit: function () {
+        cacheTodo : function () {
             this.canceTodo = {}
         },
         doneEdit: function (item) {
