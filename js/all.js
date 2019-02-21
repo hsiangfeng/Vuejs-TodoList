@@ -12,14 +12,14 @@ var app = new Vue({
     status: 'all'
   },
   methods: {
-    //新增todo
+    // 新增todo
     addTodo: function () {
-      //trim 去除空白
+      // trim 去除空白
       var value = this.newTodo.trim()
       var timetamp = Math.floor(Date.now())
       if (!value) { return }
       console.log(value, timetamp)
-      //使用push到陣列
+      // 使用push到陣列
       this.todoList.push({
         id: timetamp,
         title: value,
@@ -31,7 +31,7 @@ var app = new Vue({
       var newIndex = ''
       var vm = this
       vm.todoList.forEach(function (item, key) {
-        if (todo.id == item.id) {
+        if (todo.id === item.id) {
           newIndex = key
         }
       })
@@ -45,18 +45,19 @@ var app = new Vue({
       this.cacheTodo = {}
     },
     doneEdit: function (item) {
-      item.title = this.cacheTitle;
+      item.title = this.cacheTitle
       this.cacheTitle = ''
       this.cacheTodo = {}
     },
     removeAll: function () {
       this.todoList = []
     }
-  }, computed: {
+  },
+  computed: {
     filteredTodo: function () {
-      if (this.status == 'all') {
+      if (this.status === 'all') {
         return this.todoList
-      } else if (this.status == 'active') {
+      } else if (this.status === 'active') {
         var newTodoList = []
         this.todoList.forEach(function (item) {
           if (!item.completed) {
@@ -64,8 +65,8 @@ var app = new Vue({
           }
         })
         return newTodoList
-      } else if (this.status == 'completed') {
-        var newTodoList = []
+      } else if (this.status === 'completed') {
+        let newTodoList = []
         this.todoList.forEach(function (item) {
           if (item.completed) {
             newTodoList.push(item)
